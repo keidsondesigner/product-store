@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, EventEmitter, Output, computed, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Product } from '../../../../shared/interfaces/products.interface';
@@ -14,6 +14,13 @@ import { Product } from '../../../../shared/interfaces/products.interface';
 export class CardComponent {
   product = input.required<Product>();
 
+  @Output() edit = new EventEmitter();
+
+  // computed observa "product" e suas mudanças
+  // Só fazer Get dos valores
   productTitle = computed(() => this.product().title);
-  // computed  oberva "product", e suas mudanças, só posso fazer get dos valores;
+
+  // onEdit() {
+  //   this.edit.emit();
+  // }
 }
