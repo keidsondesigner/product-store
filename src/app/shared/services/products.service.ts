@@ -12,4 +12,9 @@ export class ProductsService {
   getAll() {
     return this.httpClient.get<Product[]>('api/products');
   }
+
+  // TODO: payload"product" é o que é enviado para o backend
+  post(product: Omit<Product, 'id'>) {
+    return this.httpClient.post('api/products', product);
+  }
 }
