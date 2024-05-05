@@ -19,6 +19,10 @@ export class ListComponent {
   router = inject(Router);
 
   ngOnInit() {
+    this.loadProducts();
+  }
+
+  loadProducts() {
     this.productsService.getAll().subscribe(products => {
       this.products = products;
     });
@@ -26,5 +30,12 @@ export class ListComponent {
 
   handleOnEdit(product: Product) {
     this.router.navigate(['/edit-product', product.id]);
+  }
+
+  handleOnDelete(product: Product) {
+    this.productsService.delete(product.id).subscribe(() => {
+      // this.products = this.products.filter(p => p.id !== product.id);
+      this.loadProducts();
+    });
   }
 }

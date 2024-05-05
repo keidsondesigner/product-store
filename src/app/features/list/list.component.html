@@ -3,5 +3,16 @@
   <a mat-raised-button color="primary" [routerLink]="['/create-product']" routerLinkActive="router-link-active" >Criar produto</a>
 </div>
 @for(product of products; track product.id) {
-  <app-card [product]="product" (onEdit)="handleOnEdit(product)"/>
+  @defer (on immediate) {
+    <app-card
+      [product]="product"
+      (onEdit)="handleOnEdit(product)"
+      (onDelete)="handleOnDelete(product)"
+    />
+  }
+}
+@empty {
+  @defer (on immediate) {
+    <p>Nenhum produto cadastrado :(</p>
+  }
 }
