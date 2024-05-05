@@ -3,5 +3,5 @@
   <a mat-raised-button color="primary" [routerLink]="['/create-product']" routerLinkActive="router-link-active" >Criar produto</a>
 </div>
 @for(product of products; track product.id) {
-  <app-card [product]="product" (edit)="handleOnEdit(product)"/>
+  <app-card [product]="product" (onEdit)="handleOnEdit(product)"/>
 }
