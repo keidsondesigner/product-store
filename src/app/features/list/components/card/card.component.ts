@@ -14,13 +14,13 @@ import { Product } from '../../../../shared/interfaces/products.interface';
 export class CardComponent {
   product = input.required<Product>();
 
-  @Output() edit = new EventEmitter();
+  @Output() onEdit = new EventEmitter();
 
   // computed observa "product" e suas mudanças
   // Só fazer Get dos valores
   productTitle = computed(() => this.product().title);
 
-  // onEdit() {
+  // onEditEvent() {
   //   this.edit.emit();
   // }
 }
