@@ -26,4 +26,8 @@ export class ProductsService {
   put(id: string, product: Omit<Product, 'id'>) {
     return this.httpClient.put(`api/products/${id}`, product);
   }
+
+  delete(id: string) {
+    return this.httpClient.delete(`api/products/${id}`);
+  }
 }
