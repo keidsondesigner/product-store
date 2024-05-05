@@ -12,9 +12,11 @@ import { Product } from '../../../../shared/interfaces/products.interface';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
+  @Output() onEdit = new EventEmitter();
+  @Output() onDelete = new EventEmitter();
+
   product = input.required<Product>();
 
-  @Output() onEdit = new EventEmitter();
 
   // computed observa "product" e suas mudanças
   // Só fazer Get dos valores
