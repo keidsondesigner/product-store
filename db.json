@@ -1,8 +1,16 @@
 {
   "products": [
     {
-      "id": "1",
-      "title": "Product 1"
+      "id": "13fe",
+      "title": "Camisa"
+    },
+    {
+      "id": "8490",
+      "title": "Chapéu"
+    },
+    {
+      "id": "c634",
+      "title": "Bermuda"
     }
   ]
 }
