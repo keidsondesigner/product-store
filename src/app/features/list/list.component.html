@@ -1,14 +1,29 @@
 <h1>lista de Produtos</h1>
+<input
+  type="search"
+  id="search"
+  placeholder="Pesquisar..."
+  (keyup)="onSearchTermChange($event)"
+  (search)="onSearchTermChange($event)"
+/>
 <div class="action-container">
-  <a mat-raised-button color="primary" [routerLink]="['/create-product']" routerLinkActive="router-link-active" >Criar produto</a>
+  <a
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/create-product']"
+    routerLinkActive="router-link-active" >
+    Criar produto
+  </a>
 </div>
-@for(product of products; track product.id) {
+@for(product of filteredProducts$ | async; track product.id) {
   @defer (on immediate) {
-    <app-card
-      [product]="product"
-      (onEdit)="handleOnEdit(product)"
-      (onDelete)="handleOnDelete(product)"
-    />
+    <div class="product-card__container">
+      <app-card
+        [product]="product"
+        (onEdit)="handleOnEdit(product)"
+        (onDelete)="handleOnDelete(product)"
+      />
+    </div>
   }
 }
 @empty {
